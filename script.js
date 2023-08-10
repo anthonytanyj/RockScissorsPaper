@@ -3,20 +3,18 @@ function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3)
     let computerChoice = ""
     if (choice === 0) {
-        computerChoice = "Rock"
+        computerChoice = "rock"
     } else if (choice === 1) {
-        computerChoice = "Paper"
+        computerChoice = "paper"
     } else {
-        computerChoice = "Scissors"
+        computerChoice = "scissors"
     }
     return computerChoice
 }
 
-console.log(getComputerChoice())
-
 function playRound(playerSelection, computerSelection) {
     playerSelection = String(playerSelection).toLowerCase()
-    computerSelection = String(computerSelection).toLowerCase()
+    computerSelection = getComputerChoice();
 
     if (playerSelection === computerSelection) {
         return "Draw"
@@ -35,28 +33,26 @@ function playRound(playerSelection, computerSelection) {
 }
 }
 
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
 
-function game() {
-    let result = []
-    let resultCounter = 0
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("What's your choice?");
-        const computerSelection = getComputerChoice();
-        let roundResult = playRound(playerSelection, computerSelection)
-        console.log(roundResult);
-        resultCounter = resultCounter + roundResult.includes("Win") - roundResult.includes("Lose")
-        result.push(roundResult)
-    }
-    console.log(result)
+// function game() {
+//     let result = []
+//     let resultCounter = 0
+//     for (let i = 0; i < 5; i++) {
+//         // let playerSelection = prompt("What's your choice?");
+//         // const computerSelection = getComputerChoice();
+//         let roundResult = playRound(playerSelection, computerSelection)
+//         console.log(roundResult);
+//         resultCounter = resultCounter + roundResult.includes("Win") - roundResult.includes("Lose")
+//         result.push(roundResult)
+//     }
+//     console.log(result)
 
-    if (resultCounter > 0) {
-        console.log("You Win!")
-    } else {
-        console.log("You Lose!") 
-    }
+//     if (resultCounter > 0) {
+//         console.log("You Win!")
+//     } else {
+//         console.log("You Lose!") 
+//     }
 
-}
+// }
 
-game()
+// game()
