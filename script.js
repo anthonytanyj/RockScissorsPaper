@@ -1,4 +1,5 @@
 
+
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3)
     let computerChoice = ""
@@ -19,7 +20,7 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         return "Draw"
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        return "You Win! Your " + playerSelection + " beats computer's " + computerSelection
+        return "You Win! Your " + playerSelection + " beats computer's " + computerSelection;
     } else if (playerSelection === "paper" && computerSelection === "rock") {
         return "You Win! Your " + playerSelection + " beats computer's "  + computerSelection
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
@@ -30,8 +31,10 @@ function playRound(playerSelection, computerSelection) {
         return "You Lose! Computer's " + computerSelection + " beats your " + playerSelection
     } else {
         return "You Lose! Computer's " + computerSelection + " beats your " + playerSelection
+    };
+    return score
 }
-}
+
 
 
 // function game() {
