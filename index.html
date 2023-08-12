@@ -5,17 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
 </head>
 
 <body>
-    <button id="Scissors">Scissors</button>
-    <button id="Paper">Paper</button>
-    <button id="Rock">Rock</button>
-    <div>
-        <p id="playerScore">0</p>
-        <p id ="computerScore">0</p>
+    <div class="button-container">
+        <button class="choice-button" id="Scissors">Scissors</button>
+        <button class="choice-button" id="Paper">Paper</button>
+        <button class="choice-button" id="Rock">Rock</button>
     </div>
+    
+    
+    <div class="scoreboard">
+        <div class="team">
+          <span>Player</span>
+          <div class="score" id="playerScore">0</div>
+        </div>
+        <div class="divider">:</div>
+        <div class="team">
+          <span>Computer</span>
+          <div class="score" id="computerScore">0</div>
+        </div>
+      </div>
+      
+
 
     <script>
         const keys = Array.from(document.querySelectorAll('button'));
@@ -23,32 +37,32 @@
         let computerScore = 0;
         keys.forEach(key => key.addEventListener('click', function () {
             let result = playRound(key.innerText);
-            if (result.match('You Win!')){
+            if (result.match('You Win!')) {
                 playerScore += 1
                 document.getElementById("playerScore").innerText = playerScore
-            } else if (result.match('You Lose')){
+            } else if (result.match('You Lose')) {
                 computerScore += 1
                 document.getElementById("computerScore").innerText = computerScore
             }
             alert(result);
-        
+
             document.getElementById("playerScore").innerText = playerScore;
             document.getElementById("computerScore").innerText = computerScore;
 
-        if (playerScore === 5 || computerScore === 5){
-            if(document.getElementById("playerScore").innerText > document.getElementById("computerScore").innerText) {
-                alert('Congrats! You Won!')
-            }else{
-                alert('Sorry! You Lost!');
+            if (playerScore === 5 || computerScore === 5) {
+                if (document.getElementById("playerScore").innerText > document.getElementById("computerScore").innerText) {
+                    alert('Congrats! You Won!')
+                } else {
+                    alert('Sorry! You Lost!');
+                }
+                playerScore = 0;
+                computerScore = 0;
+
+                document.getElementById("playerScore").innerText = playerScore;
+                document.getElementById("computerScore").innerText = computerScore;
+
             }
-            playerScore = 0;
-            computerScore = 0;
-
-            document.getElementById("playerScore").innerText = playerScore;
-            document.getElementById("computerScore").innerText = computerScore;
-
-        }
-    }));
+        }));
     </script>
 </body>
 
